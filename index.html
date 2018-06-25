@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                width: 100%;
+                font-family: Helvetica, sans-serif;
+            }
+
+            .header {
+                height: 56px;
+                background-color: #2196F3;
+                color: #FFF;
+                position: fixed;
+                width: 100%;
+                font-size: 20px;
+                box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+                padding: 0 16px;
+                display: flex;
+                align-items: center;
+                z-index: 1000;
+            }
+
+            .header__title {
+                flex: 1;
+                font-weight: 400;
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .header__add-button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                height: 44px;
+                width: 44px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <h1 class="header__title">Dictionary PWA</h1>
+            <button class="header__add-button" aria-label="Get definition for word">🔎</button>
+        </header>
+    </body>
+</html>
