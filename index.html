@@ -16,7 +16,7 @@
 
             .header {
                 height: 56px;
-                background-color: #2196F3;
+                background-color: #66BB6A;
                 color: #FFF;
                 position: fixed;
                 width: 100%;
@@ -35,19 +35,65 @@
                 margin: 0;
             }
 
-            .header__add-button {
+            .header__input {
+                font-size: 1.5rem;
+            }
+
+            .header__search-button {
                 background: none;
                 border: none;
                 cursor: pointer;
+                font-size: 1.5rem;
                 height: 44px;
                 width: 44px;
+            }
+
+            .main {
+                padding-top: 60px;
+            }
+
+            .card {
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+                margin: 16px;
+                padding: 16px;
+            }
+
+            .word__term {
+                font-size: 1.75rem;
+            }
+
+            .word__definition {
+                font-size: 1.25rem;
             }
         </style>
     </head>
     <body>
         <header class="header">
             <h1 class="header__title">Dictionary PWA</h1>
-            <button class="header__add-button" aria-label="Get definition for word">🔎</button>
+            <input class="header__input js-input" type="text" placeholder="Get definition for word" />
+            <button class="header__search-button js-search-button" aria-label="Get definition for word">🔎</button>
         </header>
+
+        <main class="main js-main">
+            <dl>
+                <div class="card">
+                    <dt class="word__term">archaic</dt> 
+                    <dd class="word__definition">adjective
+                        marked by the characteristics of an earlier period; antiquated:
+                    </dd>
+                </div>
+
+            </dl>
+
+        </main>
+
+        <template id="definition-template">
+            <div class="card">
+                <dt class="word__term"></dt>
+                <dd class="word__definition"></dd>
+            </div>
+        </template>
+
+        <script type="text/javascript" src="./app.js"></script>
     </body>
 </html>
