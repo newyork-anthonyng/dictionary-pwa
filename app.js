@@ -10,9 +10,26 @@
   function searchForWord() {
     const searchTerm = inputField.value;
 
-    fetchDefinition(searchTerm).then(response =>
+    fetchDefinition(searchTerm).then(response => {
       renderWordCard(searchTerm, response.definition)
-    );
+      saveDefinition(searchTerm, response.definition);
+    });
+  }
+
+  function getAllDefinitions() {
+    const LOCAL_STORAGE_KEY = "DICTIONARY_PWA_DEFINITIONS";
+
+    return JSON.parse(localStorage[LOCAL_STORAGE_KEY] || "[]");
+  }
+
+  function saveDefinition(term, definition) {
+      const LOCAL_STORAGE_KEY = "DICTIONARY_PWA_DEFINITIONS";
+      const newDefinition = { term, definition };
+
+      const storage = JSON.parse(localStorage[LOCAL_STORAGE_KEY] || "[]");
+      storage.push(newDefinition);
+      
+      localStorage[LOCAL_STORAGE_KEY] = JSON.stringify(storage);
   }
 
   function renderWordCard(term, definition) {
@@ -50,4 +67,11 @@
         };
       });
   }
+
+  // Initialization code
+  // Render saved words onto screen
+  const savedWords = getAllDefinitions();
+  savedWords.forEach(word => {
+    renderWordCard(word.term, word.definition);
+  });
 })();
