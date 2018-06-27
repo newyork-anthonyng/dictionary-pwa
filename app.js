@@ -74,4 +74,13 @@
   savedWords.forEach(word => {
     renderWordCard(word.term, word.definition);
   });
+
+  // Add serviceworker.js
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then(() => {
+        console.log('%c[ServiceWorker] registered', 'color: green;');
+      })
+  }
 })();
