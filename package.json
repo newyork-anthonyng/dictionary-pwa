@@ -1,0 +1,30 @@
+{
+  "name": "dictionary-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "html-webpack-plugin": "^3.2.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "deploy": "npm run build && firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newyork-anthonyng/dictionary-pwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newyork-anthonyng/dictionary-pwa/issues"
+  },
+  "homepage": "https://github.com/newyork-anthonyng/dictionary-pwa#readme"
+}
