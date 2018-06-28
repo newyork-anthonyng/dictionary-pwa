@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,8 @@
         <link rel="shortcut icon" type="image/png" href="./icons/icon-16x16.png">
 
         <link rel="manifest" href="./manifest.json">
+        <meta name="theme-color" content="#66BB6A">
+
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <meta name="apple-mobile-web-app-title" content="Dictionary PWA">
@@ -38,16 +40,13 @@
                 z-index: 1000;
             }
 
-            .header__title {
-                flex: 1;
-                font-weight: 400;
-                font-size: 20px;
-                margin: 0;
-            }
-
             .header__input {
                 font-size: 1.5rem;
-                width: 50%;
+            }
+
+            .header__input_label {
+                position: absolute;
+                text-indent: -10000px;
             }
 
             .header__search-button {
@@ -71,38 +70,31 @@
 
             .word__term {
                 font-size: 1.75rem;
+                margin: 0;
             }
 
             .word__definition {
                 font-size: 1.25rem;
                 line-height: 1.25;
-                margin-left: 16px;
-                margin-top: 8px;
+                margin: 8px 16px 0 16px;
             }
         </style>
     </head>
     <body>
         <header class="header">
-            <h1 class="header__title">Dictionary PWA</h1>
-            <input class="header__input js-input" type="text" placeholder="Get definition for word" />
-            <button class="header__search-button js-search-button" aria-label="Get definition for word">🔎</button>
+            <form class="js-form">
+                <label class="header__input_label" for="header__input">Get definition for word</label>
+                <input id="header__input" class="header__input js-input" type="text" placeholder="Get definition for word" />
+                <button type="submit" class="header__search-button js-search-button" aria-label="Get definition for word">🔎</button>
+            </form>
         </header>
 
-        <main class="main js-main">
-            <dl>
-                <div class="card">
-                    <dt class="word__term">archaic</dt> 
-                    <dd class="word__definition">adjective
-                        marked by the characteristics of an earlier period; antiquated:
-                    </dd>
-                </div>
-            </dl>
-        </main>
+        <main class="main js-main"></main>
 
         <template id="definition-template">
             <div class="card">
-                <dt class="word__term"></dt>
-                <dd class="word__definition"></dd>
+                <p class="word__term"></p>
+                <p class="word__definition"></p>
             </div>
         </template>
 

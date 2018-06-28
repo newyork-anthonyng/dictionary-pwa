@@ -3,11 +3,10 @@
   const template = document.getElementById("definition-template");
   const main = document.querySelector(".js-main");
 
-  document
-    .querySelector(".js-search-button")
-    .addEventListener("click", searchForWord);
+  document.querySelector(".js-form").addEventListener("submit", searchForWord);
 
-  function searchForWord() {
+  function searchForWord(event) {
+    event.preventDefault();
     const searchTerm = inputField.value;
 
     fetchDefinition(searchTerm).then(response => {
@@ -34,10 +33,10 @@
 
   function renderWordCard(term, definition) {
     const clone = document.importNode(template.content, true);
-    const termNode = clone.querySelector("dt");
+    const termNode = clone.querySelector(".word__term");
     termNode.textContent = term;
 
-    const definitionNode = clone.querySelector("dd");
+    const definitionNode = clone.querySelector(".word__definition");
     definitionNode.textContent = definition;
 
     main.appendChild(clone);
